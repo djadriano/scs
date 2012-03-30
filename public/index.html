@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=utf-8>
+  <title>SoundCloud Simple</title>
+  <link rel="stylesheet" href="_/stylesheets/main.css" type="text/css">
+</head>
+<body>
+
+  <header id="header">
+    <h1>SoundCloud Simple</h1>
+    <form action="#" id="form_search" method="post" accept-charset="utf-8">
+      <fieldset>
+          <input name="search_field" placeholder="search">
+      </fieldset>
+    </form>
+  </header>
+  
+  <section id="app_content">
+    
+    <header>
+      <iframe scrolling="no" frameborder="no" src=""></iframe>
+      <hgroup>
+        <h1>Recent Updates</h1>
+        <h2>loading sounds...</h2>
+      </hgroup>
+    </header>
+    
+    <section id="list_content">
+      <div id="sounds"></div>
+      <script type="text/template" id="tmpl_sounds">
+        <ul>
+          <% for (var index = 0; index < data.collection.length; index++) { %>
+            <li data-id="<%= data.collection[ index ].id %>">
+              <figure>
+                <% if( data.collection[ index ].artwork_url === null ) { %>
+                  <img src="<%= data.collection[ index ].user.avatar_url %>">
+                <% } else { %>
+                  <img src="<%= data.collection[ index ].artwork_url %>">
+                <% } %>
+                <figcaption><a href="#">play sound</a></figcaption>
+              </figure>
+              <dl>
+                <dt><%= data.collection[ index ].user.username %></dt>
+                <dd><%= data.collection[ index ].title %></dd>
+              </dl>
+              <div class="data_sound">
+                <b class="sound_plays"><i>plays:</i> <%= data.collection[ index ].playback_count %></b> <b class="sound_favorites"><i>favorites:</i> <%= data.collection[ index ].favoritings_count %></b>
+              </div>
+            </li>
+          <% } %>
+        </ul>
+      </script>
+    </section>
+    
+  </section>
+
+  <!-- ## Core ========================================= ## -->
+  <script src="_/javascripts/_vendors/core/jquery-1.7.2.min.js" type="text/javascript"></script>
+  <script src="_/javascripts/_vendors/core/underscore-min.js" type="text/javascript"></script>
+  <script src="_/javascripts/_vendors/core/json2.js" type="text/javascript"></script>
+  <script src="_/javascripts/_vendors/core/backbone-min.js" type="text/javascript"></script>
+  
+  <!-- ## App plugins ========================================= ## -->  
+  <script src="_/javascripts/_vendors/plugins/jquery.scrollTo-1.4.2-min.js" type="text/javascript"></script>
+  
+  <!-- ## App Files ========================================= ## -->
+  <script src="_/javascripts/_app/app.js" type="text/javascript"></script>
+  
+  <!-- ## App MVC Files ========================================= ## -->
+  <script src="_/javascripts/_app/models/sounds.js" type="text/javascript"></script>
+  <script src="_/javascripts/_app/models/search.js" type="text/javascript"></script>
+  <script src="_/javascripts/_app/models/app.js" type="text/javascript"></script>
+
+  <script src="_/javascripts/_app/collections/sounds.js" type="text/javascript"></script>
+  <script src="_/javascripts/_app/collections/search.js" type="text/javascript"></script>
+  <script src="_/javascripts/_app/collections/app.js" type="text/javascript"></script>
+
+  <script src="_/javascripts/_app/views/player.js" type="text/javascript"></script>
+  <script src="_/javascripts/_app/views/sounds.js" type="text/javascript"></script>
+  <script src="_/javascripts/_app/views/search.js" type="text/javascript"></script>
+  <script src="_/javascripts/_app/views/app.js" type="text/javascript"></script>
+</body>
+</html>

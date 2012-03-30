@@ -1,0 +1,22 @@
+@import 'compass/reset';
+@import 'compass/reset/utilities';
+
+@include global-reset;
+
+// reset all buttons
+input[type="submit"],
+button { 
+    border: 0; 
+    padding: 0;
+    cursor: pointer;
+    outline: none; /* for good measure */
+    overflow: visible; /* removes extra side padding in IE */
+}
+
+/* removing dotted line on buttons and clickable input elements for Firefox */
+input[type="submit"]::-moz-focus-inner, 
+input[type="button"]::-moz-focus-inner, 
+button::-moz-focus-inner { 
+  border : 0;
+  padding: 0;
+}

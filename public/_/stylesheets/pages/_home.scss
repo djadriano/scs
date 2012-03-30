@@ -1,0 +1,176 @@
+// --------------------------
+// app content
+// --------------------------
+#app_content {
+  @include container;
+  overflow: hidden;
+  width: 61em;
+  max-width: 100%;
+  margin: auto;
+  
+  // --------------------------
+  // player
+  // --------------------------
+  header {
+    width: 640px;
+    position: fixed;
+    top: 60px;
+    margin: 0 auto auto 16px;
+    z-index: 1;
+    background: #fff;
+    
+    iframe {
+      width: 640px;
+      height: 166px;
+      display: none;
+    }
+    
+    h1 {
+      background: image-url('ico_star.png') left 1px no-repeat;
+      border-bottom: 1px solid $color_border_gray;
+      padding: 0 0 20px 25px;
+      margin-top: 20px;
+    }
+    
+    h2 {
+      background: image-url('loader.gif') left no-repeat;
+      position: absolute;
+      right: 0;
+      bottom: 15px;
+      padding-left: 35px;
+      line-height: 24px;
+      display: none;
+    }
+  }
+  
+  // --------------------------
+  // list content
+  // --------------------------
+  #list_content {
+    @include columns(8);
+    @include alpha;
+    margin-top: 118px;
+    position: relative;
+    
+    ul {
+      -webkit-column-count: 3;
+      -webkit-column-gap: 100px;
+      -webkit-column-width: 140px;
+      -moz-column-count: 3;
+      -moz-column-gap: 100px;
+      -moz-column-width: 140px;
+      margin-top: 20px;
+      
+      li {
+        @include border-radius(4px);
+        vertical-align: top;
+        display: inline-block;
+        margin-bottom: 15px;
+        border: 1px solid $color_border_gray;
+        padding: 20px;
+        text-align: center;
+        cursor: pointer;
+        float: middle;
+        
+        figure {
+          width: 100px;
+          height: 100px;
+          margin-bottom: 10px;
+          position: relative;
+          
+          img {
+            @include border-radius(4px);
+          }
+          
+          figcaption {
+            @include border-radius(4px);
+            background: rgba(54, 15, 52, 0.8) image-url('ico_play.png') center center no-repeat;
+            color: transparent;
+            shadow: none;
+            display: none;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            line-height: 100px;
+            
+            a {
+              color: transparent;
+              shadow: none;
+            }
+          }
+        }
+        
+        dl {
+          dt {
+            font-weight: bold;
+            color: $color_text_gray_dark;
+            margin-bottom: 5px;
+          }
+          
+          dd {
+            width: 100px;
+          }
+        }
+        
+        .data_sound {
+          text-align: right;
+          margin-top: 20px;
+          display: none;
+          opacity: 0;
+          color: #f8ad7a;
+          
+          i {
+            display: none;
+          }
+          
+          .sound_plays,
+          .sound_favorites {
+            padding-left: 20px;
+            width: 16px;
+            height: 14px;
+            line-height: 14px;
+          }
+          
+          .sound_plays {
+            background: image-url('ico_phone.png') left top no-repeat;
+            margin-right: 10px;
+          }
+          
+          .sound_favorites { background: image-url('ico_heart.png') left top no-repeat; }
+        }
+        
+        &:hover,
+        &.active {
+          @include gradient_bg($color_bg_box_hover_1, $color_bg_box_hover_2);
+          color: #FFF;
+          border-color: $color_border_orange;
+          
+          figure {
+            figcaption {
+              display: block;
+            }
+          }
+          
+          dt { color: #FFF; }
+          
+          .data_sound {
+            display: block;
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+  
+  button {
+    @include border-radius(4px);
+    background: $color_bg_input_header;
+    border: 1px solid $color_border_orange;
+    color: #fff;
+    padding: 10px;
+    margin-left: 250px;
+    margin-bottom: 20px;
+  }
+}

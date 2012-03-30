@@ -1,0 +1,41 @@
+#header {
+  @include gradient_bg($color_bg_header_1, $color_bg_header_2);
+  max-width: 100%;
+  height: 60px;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  z-index: 9999;
+  
+  h1 {
+    @include inline-block;
+    background: image-url('logo.png');
+    text-shadow: none;
+    color: transparent;
+    margin-top: 10px;
+    width: 145px;
+    height: 24px;
+  }
+  
+  form {
+    @include inline-block;
+    margin: 12px 0 0 25px;
+    
+    input {
+      @include border-radius(4px);
+      background: $color_bg_input_header;
+      border: 1px solid $color_border_orange;
+      color: #FFF;
+      padding: 0 8px;
+      line-height: 32px;
+      height: 32px;
+      font-size: 14px;
+      width: 268px;
+      
+      &::-webkit-input-placeholder,
+      &::-moz-placeholder {
+        color: #fff;
+      }
+    }
+  }
+}
