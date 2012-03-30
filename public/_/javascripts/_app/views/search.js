@@ -39,6 +39,10 @@ SCS.Views.Search = Backbone.View.extend({
         sounds_view.model.set( { pagination : false } );
         sounds_view.render( response );
         
+      },
+      
+      error : function(model, response) {
+        console.log('a');
       }
     });
     
