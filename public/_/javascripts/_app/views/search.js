@@ -41,7 +41,7 @@ SCS.Views.Search = Backbone.View.extend({
           
         } else {
           
-          $( 'h1', self.title_content ).html( "Sorry, we couldn't find any tracks matching " + self.model.get( 'search_field' ) );
+          $( 'h1', self.title_content ).html( "Sorry, we couldn't find any tracks matching:: " + self.model.get( 'search_field' ) );
           $( 'h2', self.title_content ).hide();
           
         }
