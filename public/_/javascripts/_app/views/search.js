@@ -33,13 +33,18 @@ SCS.Views.Search = Backbone.View.extend({
       success : function( model, response ) {
         
         if(response.collection.length) {
-          console.log('aaa');
+          
+          $( 'h1', self.title_content ).html( 'Search results for ' + self.model.get( 'search_field' ) );
+          $( 'h2', self.title_content ).hide();
+          sounds_view.model.set( { pagination : false } );
+          sounds_view.render( response );
+          
+        } else {
+          
+          $( 'h1', self.title_content ).html( "Sorry, we couldn't find any tracks matching " + self.model.get( 'search_field' ) );
+          $( 'h2', self.title_content ).hide();
+          
         }
-        
-        $( 'h1', self.title_content ).html( 'Search results for ' + self.model.get( 'search_field' ) );
-        $( 'h2', self.title_content ).hide();
-        sounds_view.model.set( { pagination : false } );
-        sounds_view.render( response );
         
       }
     });
