@@ -32,7 +32,7 @@ SCS.Views.Search = Backbone.View.extend({
       data    : { q : self.model.get( 'search_field' ) },
       success : function( model, response ) {
         
-        if(~response.collection.length) {
+        if(response.collection.length) {
           console.log('aaa');
         }
         
