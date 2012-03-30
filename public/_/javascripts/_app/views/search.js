@@ -32,6 +32,8 @@ SCS.Views.Search = Backbone.View.extend({
       data    : { q : self.model.get( 'search_field' ) },
       success : function( model, response ) {
         
+        console.log(response.collection.length);
+        
         $( 'h1', self.title_content ).html( 'Search results for ' + self.model.get( 'search_field' ) );
         $( 'h2', self.title_content ).hide();
         sounds_view.model.set( { pagination : false } );
