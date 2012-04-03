@@ -62,6 +62,7 @@
       margin-top: 20px;
       
       li {
+        @include transition(all 200ms ease-in-out);
         @include border-radius(4px);
         vertical-align: top;
         display: inline-block;
@@ -71,6 +72,8 @@
         text-align: center;
         cursor: pointer;
         float: middle;
+        position: relative;
+        overflow: hidden;
         
         figure {
           width: 100px;
@@ -115,11 +118,14 @@
         }
         
         .data_sound {
+          @include transition(all 300ms linear);
           text-align: right;
           margin-top: 20px;
-          display: none;
-          opacity: 0;
+          opacity: 1;
           color: #f8ad7a;
+          position: absolute;
+          bottom: -40px;
+          right: 20px;
           
           i {
             display: none;
@@ -146,6 +152,7 @@
           @include gradient_bg($color_bg_box_hover_1, $color_bg_box_hover_2);
           color: #FFF;
           border-color: $color_border_orange;
+          padding-bottom: 40px;
           
           figure {
             figcaption {
@@ -156,8 +163,9 @@
           dt { color: #FFF; }
           
           .data_sound {
-            display: block;
             opacity: 1;
+            bottom: 10px;
+            right: 20px;
           }
         }
       }

@@ -10,5 +10,5 @@
 })(window);
 
 $(function() {
-  new SCS.Views.App();
+  window.app = new SCS.Views.App();
 })
