@@ -34,17 +34,24 @@ SCS.Views.Search = Backbone.View.extend({
         
         if( response.collection.length ) {
           
-          $( 'h1', self.title_content ).html( 'Search results for ' + self.model.get( 'search_field' ) );
+          // show loading
+          app.loading.trigger( 'app:show_loading' );
+          
+          // update title
+          app.set_title( 'Search results for ' + self.model.get( 'search_field' ) );
+          
           sounds_view.model.set( { pagination : false } );
           sounds_view.render( response );
           
         } else {
           
-          $( 'h1', self.title_content ).html( "Sorry, we couldn't find any tracks matching:: " + self.model.get( 'search_field' ) );
+          // update title
+          app.set_title( "Sorry, we couldn't find any tracks matching:: " + self.model.get( 'search_field' ) );
           
         }
         
-        $( 'h2', self.title_content ).hide();
+        // hide loading
+        app.loading.trigger( 'app:hide_loading' );
         
       }
     });
