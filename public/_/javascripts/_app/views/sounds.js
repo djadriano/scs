@@ -53,7 +53,6 @@ SCS.Views.Sounds = Backbone.View.extend({
       this.collection.fetch({
         success : function( model, response ) {
           self.remove_button_more_results();
-          self.render( response );
           $( 'header hgroup h2', '#app_content' ).hide();
         }
       });
