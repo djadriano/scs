@@ -55,10 +55,11 @@
     ul {
       -webkit-column-count: 3;
       -webkit-column-gap: 100px;
-      -webkit-column-width: 140px;
+      -webkit-column-fill: auto;
       -moz-column-count: 3;
       -moz-column-gap: 100px;
       -moz-column-width: 140px;
+      -moz-column-fill: auto;
       margin-top: 20px;
       
       li {
@@ -71,9 +72,10 @@
         padding: 20px;
         text-align: center;
         cursor: pointer;
-        float: bottom;
         position: relative;
         overflow: hidden;
+        -webkit-column-break-inside: avoid;
+        -moz-column-break-inside: avoid;
         
         figure {
           width: 100px;
